@@ -1,0 +1,16 @@
+apiVersion: skaffold/v2beta2
+kind: Config
+build:
+  tagPolicy:
+    sha256: {}
+  artifacts:
+  - image: rereverb-user-service
+    context: .
+deploy:
+  helm:
+    releases:
+    - name: rereverb-user-service
+      chartPath: rereverb-user-service-chart
+      skipBuildDependencies: false
+      values:
+        image: rereverb-user-service
