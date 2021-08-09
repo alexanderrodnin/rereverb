@@ -23,17 +23,8 @@ spec:
               protocol: TCP
           env:
             - name: SPRING_DATASOURCE_URL
-              valueFrom:
-                secretKeyRef:
-                  name: otus-lesson-6-secret
-                  key: PG_DATASOURCE
+              value: "{{ .Values.externalPostgresql.postgresqlUrl }}"
             - name: SPRING_DATASOURCE_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  name: otus-lesson-6-secret
-                  key: PG_USERNAME
+              value: {{ .Values.externalPostgresql.postgresqlUsername }}
             - name: SPRING_DATASOURCE_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: otus-lesson-6-secret
-                  key: PG_PASSWORD
+              value: {{ .Values.externalPostgresql.postgresqlPassword }}
