@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
-@Table(name = "user_table", schema = "user_schema")
+@Table(name = "user_table")
 @NoArgsConstructor
 @Getter
 @Setter

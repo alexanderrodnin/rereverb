@@ -17,28 +17,44 @@ public class UserController {
     private final UserService userService;
     private final UserDtoMapper userDtoMapper;
 
-    @GetMapping("/{id}")
+    @GetMapping("/me")
     public ResponseEntity<UserDto> getUser(
-            @PathVariable UUID id
+            @CookieValue("session_id") String sessionId
     ) {
-        return userService.getUser(id)
+        return userService.getUser(sessionId)
                 .map(userDtoMapper::map)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PostMapping
-    public ResponseEntity<Void> createUser(@RequestBody UserDto user) {
-        userService.createUser(userDtoMapper.map(user));
+    @GetMapping("/{id}")
+    public ResponseEntity<UserDto> getUser(
+            @PathVariable UUID id,
+            @CookieValue("session_id") String sessionId
+    ) {
+        return userService.getUser(sessionId, id)
+                .map(userDtoMapper::map)
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    @PutMapping("/me")
+    public ResponseEntity<Void> updateUser(
+            @RequestBody UserDto user,
+            @CookieValue("session_id") String sessionId
+    ) {
+        userService.updateUser(sessionId, userDtoMapper.map(user));
         return ResponseEntity.ok().build();
     }
+
 
     @PutMapping("/{id}")
     public ResponseEntity<Void> updateUser(
             @PathVariable UUID id,
-            @RequestBody UserDto user
+            @RequestBody UserDto user,
+            @CookieValue("session_id") String sessionId
     ) {
-        userService.updateUser(id, userDtoMapper.map(user));
+        userService.updateUser(sessionId, id, userDtoMapper.map(user));
         return ResponseEntity.ok().build();
     }
 }

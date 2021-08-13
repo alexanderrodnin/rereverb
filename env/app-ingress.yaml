@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: app
+  annotations:
+    nginx.ingress.kubernetes.io/auth-url: "http://rereverb-user-service.default.svc.cluster.local:8080/auth"
+    nginx.ingress.kubernetes.io/auth-signin: "http://$host/auth/login"
+    nginx.ingress.kubernetes.io/auth-response-headers: "X-UserUUID"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+spec:
+  rules:
+  - host: arch.homework
+    http:
+      paths:
+      - backend:
+          serviceName: rereverb-user-service
+          servicePort: 8080
+        path: /users/me
+      - backend:
+          serviceName: rereverb-user-service
+          servicePort: 8080
+        path: /users/.+

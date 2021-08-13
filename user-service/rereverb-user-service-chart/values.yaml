@@ -11,4 +11,4 @@ service:
 externalPostgresql:
   postgresqlUsername: postgres
   postgresqlPassword: postgres
-  postgresqlUrl: "jdbc:postgresql://pg-postgresql:5432/postgres"
+  postgresqlUrl: "jdbc:postgresql://user-service-pg-postgresql:5432/postgres"

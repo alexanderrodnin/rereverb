@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: auth-proxy
+spec:
+  rules:
+  - host: arch.homework
+    http:
+      paths:
+      - backend:
+          serviceName: rereverb-user-service
+          servicePort: 8080
+        path: /auth/
+      - backend:
+          serviceName: rereverb-user-service
+          servicePort: 8080
+        path: /auth/login
+      - backend:
+          serviceName: rereverb-user-service
+          servicePort: 8080
+        path: /auth/register

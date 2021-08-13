@@ -1,4 +1,4 @@
-create table if not exists user_schema.user_table
+create table if not exists user_table
 (
     id uuid not null,
     email varchar,

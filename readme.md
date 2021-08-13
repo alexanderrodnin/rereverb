@@ -1,24 +1,23 @@
-## ReReverb
-### Build and run
-Run minikube 
+# ReReverb
+## Build and run
+### Run minikube 
 ```shell
-minikube start --vm=true
-minikube addons enable metallb
+minikube start \
+--cpus=4 \
+--memory=8g \
+--cni=flannel \
+--kubernetes-version="v1.19.0" \
+--driver=hyperkit
 minikube addons enable ingress
 ```
 
-Run **Postgres**
+### Run user-service
+Run user-service **Postgres**
 ```shell
-cd env
+cd user-service/env
 helm repo add bitnami https://charts.bitnami.com/bitnami
-helm install pg bitnami/postgresql -f helm_postgres/bitnami_postgresql.yaml 
-cd ..
-```
-
-Add schemas to Postgres
-```shell
-kubectl port-forward {pg-podname} 55432:5432
-//connect to PG and execute SQl: create schema user_schema
+helm install user-service-pg bitnami/postgresql -f helm_postgres/bitnami_postgresql.yaml 
+cd ../..
 ```
 
 Build **user-service** executable file:
@@ -30,5 +29,7 @@ cd ..
   
 Build docker images and run it with skaffold:
 ```shell
+cd user-service
 skaffold run
+cd ..
 ```
