@@ -10,6 +10,7 @@ minikube start \
 --driver=hyperkit
 minikube addons enable ingress
 ```
+Be careful: all vps should be disabled.
 
 ### Run user-service
 Run user-service **Postgres**
@@ -27,9 +28,16 @@ mvn clean package -DskipTests
 cd ..
 ```  
   
-Build docker images and run it with skaffold:
+Build docker images and run **user-service** with skaffold:
 ```shell
 cd user-service
 skaffold run
 cd ..
+```
+
+### Run auth ingress configuration
+```shell
+cd env
+kubectl apply -f app-ingress.yaml
+kubectl apply -f auth-ingress.yaml
 ```
