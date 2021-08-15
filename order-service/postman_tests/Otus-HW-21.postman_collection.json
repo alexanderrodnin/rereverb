@@ -10,25 +10,62 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": null
+				"url": {
+					"raw": "arch.homework/orders",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"orders"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "delete order",
 			"request": {
-				"method": "GET",
+				"method": "DELETE",
 				"header": [],
-				"url": null
+				"url": {
+					"raw": "arch.homework/orders/94fceb5e-2c93-4298-9943-e565a8154c42",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"orders",
+						"94fceb5e-2c93-4298-9943-e565a8154c42"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "add order",
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
-				"url": null
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"sellerId\": \"1d5007a2-fdda-11eb-9a03-0242ac130003\",\n    \"buyerId\": \"1d5007a2-fdda-11eb-9a03-0242ac130002\",\n    \"productId\": \"1d5007a2-fdda-11eb-9a03-0242ac130300\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "arch.homework/orders",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"orders"
+					]
+				}
 			},
 			"response": []
 		}
