@@ -1,0 +1,9 @@
+replicaCount: 1
+
+fullnameOverride: "rereverb-order-service"
+
+image: "rereverb-order-service:0.1.0"
+
+service:
+  type: NodePort
+  port: 8081

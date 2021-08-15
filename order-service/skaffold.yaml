@@ -1,0 +1,16 @@
+apiVersion: skaffold/v2beta2
+kind: Config
+build:
+  tagPolicy:
+    sha256: {}
+  artifacts:
+  - image: rereverb-order-service
+    context: .
+deploy:
+  helm:
+    releases:
+    - name: rereverb-order-service
+      chartPath: rereverb-order-service-chart
+      skipBuildDependencies: false
+      values:
+        image: rereverb-order-service

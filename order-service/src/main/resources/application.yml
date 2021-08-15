@@ -1,0 +1,14 @@
+server.port: 8081
+spring:
+  application.name: rereverb-order-service
+  servlet:
+    contextPath: /api/
+    multipart:
+      max-file-size: 1000MB
+      max-request-size: 1000MB
+  web.resources.add-mappings: false
+  jackson:
+    date-format: com.rereverb.orderservice.infrastructure.RFC3339DateFormat
+    serialization.WRITE_DATES_AS_TIMESTAMPS: false
+
+springfox.documentation.open-api.v3: path=/api-docs
