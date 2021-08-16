@@ -203,4 +203,4 @@ ResponseBody: UUID
 ```
 
 ## System design schema
-![System design schema](services-description.md)
+![System design schema](system-design.png)
