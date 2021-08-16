@@ -1,3 +1,4 @@
+# Services description
 ## Auth-Service
 Purpose:
 ```text
@@ -200,3 +201,6 @@ Responses:
 HTTP 200 - ok
 ResponseBody: UUID
 ```
+
+## System design schema
+![System design schema](services-description.md)
