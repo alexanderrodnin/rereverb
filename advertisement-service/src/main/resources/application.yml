@@ -1,0 +1,32 @@
+server.port : 8081
+spring:
+  application.name: rereverb-user-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    driverClassName: org.postgresql.Driver
+    username: postgres
+    password: postgres
+    hikari.auto-commit: false
+  jpa:
+    hibernate.ddl-auto: validate
+    open-in-view: false
+    properties.hibernate:
+      jdbc:
+        time_zone: UTC
+        batch_size: 20
+      connection.provider_disables_autocommit: true
+      default_schema: public
+  liquibase:
+    changeLog: classpath:/db/changelog/db.changelog-master.xml
+    liquibase-schema: public
+  servlet:
+    contextPath: /api/
+    multipart:
+      max-file-size: 1000MB
+      max-request-size: 1000MB
+  web.resources.add-mappings: false
+  jackson:
+    date-format: com.rereverb.userservice.infrastructure.RFC3339DateFormat
+    serialization.WRITE_DATES_AS_TIMESTAMPS: false
+
+springfox.documentation.open-api.v3: path=/api-docs

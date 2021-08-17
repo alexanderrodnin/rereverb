@@ -1,0 +1,16 @@
+apiVersion: skaffold/v2beta2
+kind: Config
+build:
+  tagPolicy:
+    sha256: {}
+  artifacts:
+  - image: rereverb-advertisement-service
+    context: .
+deploy:
+  helm:
+    releases:
+    - name: rereverb-v-service
+      chartPath: rereverb-advertisement-service-chart
+      skipBuildDependencies: false
+      values:
+        image: rereverb-advertisement-service

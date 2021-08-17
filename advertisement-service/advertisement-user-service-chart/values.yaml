@@ -1,0 +1,14 @@
+replicaCount: 1
+
+fullnameOverride: "rereverb-advertisement-service"
+
+image: "rereverb-advertisement-service:0.1.0"
+
+service:
+  type: NodePort
+  port: 8080
+
+externalPostgresql:
+  postgresqlUsername: postgres
+  postgresqlPassword: postgres
+  postgresqlUrl: "jdbc:postgresql://advertisement-service-pg-postgresql:5432/postgres"

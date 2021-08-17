@@ -9,7 +9,8 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>user-service</module>
+<!--        <module>user-service</module>-->
+<!--        <module>advertisement-service</module>-->
     </modules>
 
 </project>

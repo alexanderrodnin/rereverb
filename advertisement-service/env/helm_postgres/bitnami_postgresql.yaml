@@ -1,0 +1,18 @@
+global:
+  postgresql:
+    postgresqlPostgresPassword: postgres
+    postgresqlDatabase: postgres
+    postgresqlUsername: postgres
+    postgresqlPassword: postgres
+
+postgresql:
+  postgresqlPostgresPassword: postgres
+  postgresqlDatabase: postgres
+  postgresqlUsername: postgres
+  postgresqlPassword: postgres
+
+postgresqlPostgresPassword: postgres
+postgresqlDatabase: postgres
+postgresqlUsername: postgres
+postgresqlPassword: postgres
+
