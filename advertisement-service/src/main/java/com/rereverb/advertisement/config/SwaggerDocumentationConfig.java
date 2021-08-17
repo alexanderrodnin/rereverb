@@ -27,7 +27,7 @@ public class SwaggerDocumentationConfig {
 
     ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-            .title("User Service")
+            .title("Advertisement Service")
             .description("This is simple client API ")
 //            .license("")
 //            .licenseUrl("http://unlicense.org")
@@ -41,7 +41,7 @@ public class SwaggerDocumentationConfig {
     public OpenAPI openApi() {
         return new OpenAPI()
             .info(new Info()
-                .title("User Service")
+                .title("Advertisement Service")
                 .description("This is simple client API ")
                 .termsOfService("")
                 .version("1.0.0"));

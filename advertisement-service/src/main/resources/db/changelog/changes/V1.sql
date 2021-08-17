@@ -1,7 +1,10 @@
-create table if not exists user_table
+create table if not exists advertisement
 (
     id uuid not null,
-    email varchar,
-    name varchar,
-    password varchar
+    header varchar,
+    description varchar,
+    price double precision not null
 );
+
+
+

@@ -1,4 +1,4 @@
-package com.rereverb.order.entity;
+package com.rereverb.advertisement.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,22 +8,22 @@ import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
-@Table(name = "user_table")
+@Table(name = "advertisement")
 @NoArgsConstructor
 @Getter
 @Setter
-public class UserEntity {
+public class AdvertisementEntity {
 
     @Id
     @GeneratedValue
     private UUID id;
 
     @Column
-    private String email;
+    private String header;
 
     @Column
-    private String name;
+    private String description;
 
     @Column
-    private String password;
+    private double price;
 }
