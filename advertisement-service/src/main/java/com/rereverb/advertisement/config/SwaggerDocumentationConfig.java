@@ -1,4 +1,4 @@
-package com.rereverb.advertisement.config;
+package com.rereverb.order.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;

@@ -1,0 +1,14 @@
+replicaCount: 1
+
+fullnameOverride: "rereverb-order-service"
+
+image: "rereverb-order-service:0.1.0"
+
+service:
+  type: NodePort
+  port: 8080
+
+externalPostgresql:
+  postgresqlUsername: postgres
+  postgresqlPassword: postgres
+  postgresqlUrl: "jdbc:postgresql://order-service-pg-postgresql:5432/postgres"

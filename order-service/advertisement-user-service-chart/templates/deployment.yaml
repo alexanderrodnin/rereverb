@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "rereverb-order-service-chart.fullname" . }}
+  labels:
+    {{- include "rereverb-order-service-chart.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "rereverb-order-service-chart.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "rereverb-order-service-chart.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image }}"
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          env:
+            - name: SPRING_DATASOURCE_URL
+              value: "{{ .Values.externalPostgresql.postgresqlUrl }}"
+            - name: SPRING_DATASOURCE_USERNAME
+              value: {{ .Values.externalPostgresql.postgresqlUsername }}
+            - name: SPRING_DATASOURCE_PASSWORD
+              value: {{ .Values.externalPostgresql.postgresqlPassword }}
