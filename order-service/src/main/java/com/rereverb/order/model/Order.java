@@ -14,6 +14,6 @@ public class Order {
     private UUID id;
     private UUID advertisementId;
     private UUID buyerId;
-    private OrderStatus orderStatus;
+    private OrderStatus status;
     private List<OrderChatMessage> orderChatMessages;
 }

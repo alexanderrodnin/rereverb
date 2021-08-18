@@ -48,12 +48,12 @@ public class OrderController {
         orderService.addChatMessage(orderId, message, userId);
     }
 
-    @PostMapping("/{orderId}/chat")
+    @PostMapping("/{orderId}/status")
     public void changeOrderStatus(
             @PathVariable UUID orderId,
-            @RequestBody OrderStatus orderStatus,
+            @RequestBody OrderStatus status,
             @RequestHeader("X-UserUUID") UUID userId
     ) {
-        orderService.changeOrderStatus(orderId, orderStatus, userId);
+        orderService.changeOrderStatus(orderId, status, userId);
     }
 }

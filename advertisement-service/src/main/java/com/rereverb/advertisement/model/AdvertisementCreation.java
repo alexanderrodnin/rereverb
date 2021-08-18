@@ -9,11 +9,8 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Advertisement {
-    private UUID id;
-    private UUID userId;
+public class AdvertisementCreation {
     private String header;
     private String description;
     private double price;
-    private AdvertisementStatus status;
 }

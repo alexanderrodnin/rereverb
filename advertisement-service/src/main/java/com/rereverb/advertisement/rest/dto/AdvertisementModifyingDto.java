@@ -1,19 +1,17 @@
-package com.rereverb.advertisement.model;
+package com.rereverb.advertisement.rest.dto;
 
+import com.rereverb.advertisement.model.AdvertisementStatus;
 import lombok.*;
 
 import java.util.UUID;
 
 @Getter
-@Builder(toBuilder = true)
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Advertisement {
-    private UUID id;
-    private UUID userId;
+public class AdvertisementModifyingDto {
     private String header;
     private String description;
     private double price;
-    private AdvertisementStatus status;
 }

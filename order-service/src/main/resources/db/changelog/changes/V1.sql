@@ -13,7 +13,7 @@ create table if not exists order
     id uuid not null,
     advertisement_id uuid not null,
     buyer_id uuid not null,
-    order_status order_status_type not null
+    status order_status_type not null
 );
 
 create table if not exists order_chat_message

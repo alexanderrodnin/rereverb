@@ -31,7 +31,7 @@ public class OrderService {
         Order order = Order.builder()
                 .advertisementId(advertisementId)
                 .buyerId(buyerId)
-                .orderStatus(OrderStatus.ACTIVE)
+                .status(OrderStatus.ACTIVE)
                 .build();
 
         OrderEntity savedOrder = orderRepository.save(orderMapper.map(order));

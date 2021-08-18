@@ -1,5 +1,6 @@
 package com.rereverb.advertisement.rest.dto;
 
+import com.rereverb.advertisement.model.AdvertisementStatus;
 import lombok.*;
 
 import java.util.UUID;
@@ -14,4 +15,5 @@ public class AdvertisementDto {
     private String header;
     private String description;
     private double price;
+    private AdvertisementStatus status;
 }
