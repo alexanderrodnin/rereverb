@@ -1,8 +1,8 @@
 package com.rereverb.order.rest.controller;
 
-import com.rereverb.order.model.OrderStatus;
-import com.rereverb.order.rest.dto.OrderCreationDto;
-import com.rereverb.order.rest.dto.OrderDto;
+import com.rereverb.api.order.enums.OrderStatus;
+import com.rereverb.api.order.rest.dto.OrderCreationDto;
+import com.rereverb.api.order.rest.dto.OrderDto;
 import com.rereverb.order.rest.mapper.OrderDtoMapper;
 import com.rereverb.order.service.OrderService;
 import lombok.RequiredArgsConstructor;

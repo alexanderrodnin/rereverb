@@ -1,6 +1,6 @@
 package com.rereverb.advertisement.entity;
 
-import com.rereverb.advertisement.model.AdvertisementStatus;
+import com.rereverb.api.advertisement.enums.AdvertisementStatus;
 import com.vladmihalcea.hibernate.type.basic.PostgreSQLEnumType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

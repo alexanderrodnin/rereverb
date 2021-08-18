@@ -6,8 +6,8 @@ import com.rereverb.advertisement.mapper.AdvertisementMapper;
 import com.rereverb.advertisement.model.Advertisement;
 import com.rereverb.advertisement.model.AdvertisementCreation;
 import com.rereverb.advertisement.model.AdvertisementModifying;
-import com.rereverb.advertisement.model.AdvertisementStatus;
 import com.rereverb.advertisement.repository.AdvertisementRepository;
+import com.rereverb.api.advertisement.enums.AdvertisementStatus;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -34,11 +34,19 @@ public class AdvertisementService {
                 .collect(Collectors.toList());
     }
 
-    public Advertisement getById(UUID advertisementId) {
+    public Advertisement getById(UUID id) {
         return advertisementRepository
-                .findById(advertisementId)
+                .findById(id)
                 .map(advertisementMapper::map)
                 .orElseThrow(() -> new NotFoundException("Advertisement not found"));
+    }
+
+    public Collection<Advertisement> getByIds(Iterable<UUID> ids) {
+        return advertisementRepository
+                .findAllById(ids)
+                .stream()
+                .map(advertisementMapper::map)
+                .collect(Collectors.toList());
     }
 
     public void createAdvertisement(

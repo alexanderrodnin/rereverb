@@ -1,4 +1,4 @@
-package com.rereverb.advertisement.rest.dto;
+package com.rereverb.api.advertisement.rest.dto;
 
 import lombok.*;
 

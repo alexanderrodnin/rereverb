@@ -1,5 +1,6 @@
 package com.rereverb.advertisement.model;
 
+import com.rereverb.api.advertisement.enums.AdvertisementStatus;
 import lombok.*;
 
 import java.util.UUID;

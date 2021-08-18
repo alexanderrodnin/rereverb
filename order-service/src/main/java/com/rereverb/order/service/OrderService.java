@@ -6,7 +6,7 @@ import com.rereverb.order.mapper.OrderChatMessageMapper;
 import com.rereverb.order.mapper.OrderMapper;
 import com.rereverb.order.model.Order;
 import com.rereverb.order.model.OrderChatMessage;
-import com.rereverb.order.model.OrderStatus;
+import com.rereverb.api.order.enums.OrderStatus;
 import com.rereverb.order.repository.OrderChatMessageRepository;
 import com.rereverb.order.repository.OrderRepository;
 import lombok.RequiredArgsConstructor;
@@ -61,7 +61,7 @@ public class OrderService {
 //        if (!userId.equals(orderEntity.getSellerId())) {
 //            throw new ForbiddenException();
 //        }
-        orderEntity.setOrderStatus(newStatus);
+        orderEntity.setStatus(newStatus);
 
         orderRepository.save(orderEntity);
     }

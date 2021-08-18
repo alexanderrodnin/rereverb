@@ -1,8 +1,8 @@
 package com.rereverb.advertisement.rest.controller;
 
-import com.rereverb.advertisement.rest.dto.AdvertisementCreationDto;
-import com.rereverb.advertisement.rest.dto.AdvertisementDto;
-import com.rereverb.advertisement.rest.dto.AdvertisementModifyingDto;
+import com.rereverb.api.advertisement.rest.dto.AdvertisementCreationDto;
+import com.rereverb.api.advertisement.rest.dto.AdvertisementDto;
+import com.rereverb.api.advertisement.rest.dto.AdvertisementModifyingDto;
 import com.rereverb.advertisement.rest.mapper.AdvertisementCreationDtoMapper;
 import com.rereverb.advertisement.rest.mapper.AdvertisementDtoMapper;
 import com.rereverb.advertisement.rest.mapper.AdvertisementModifyingDtoMapper;

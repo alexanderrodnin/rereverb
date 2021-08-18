@@ -17,7 +17,8 @@ public class SwaggerDocumentationConfig {
     public Docket customImplementation(){
         return new Docket(DocumentationType.OAS_30)
                 .select()
-                    .apis(RequestHandlerSelectors.basePackage("com.rereverb.order.rest.controller"))
+//                    .apis(RequestHandlerSelectors.basePackage("com.rereverb.order.rest.controller"))
+                    .apis(RequestHandlerSelectors.basePackage("com.rereverb"))
                     .build()
                 .directModelSubstitute(org.threeten.bp.LocalDate.class, java.sql.Date.class)
                 .directModelSubstitute(org.threeten.bp.OffsetDateTime.class, java.util.Date.class)

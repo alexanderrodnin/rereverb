@@ -9,6 +9,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>api</module>
         <module>user-service</module>
         <module>advertisement-service</module>
         <module>order-service</module>

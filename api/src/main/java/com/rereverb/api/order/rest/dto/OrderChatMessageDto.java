@@ -1,4 +1,4 @@
-package com.rereverb.order.rest.dto;
+package com.rereverb.api.order.rest.dto;
 
 import lombok.*;
 
@@ -13,6 +13,7 @@ import java.util.UUID;
 public class OrderChatMessageDto {
     private UUID id;
     private UUID orderId;
+    private UUID userId;
     private LocalDateTime dateTime;
     private String message;
 }

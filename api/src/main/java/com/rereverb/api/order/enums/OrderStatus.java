@@ -1,4 +1,4 @@
-package com.rereverb.order.model;
+package com.rereverb.api.order.enums;
 
 public enum OrderStatus {
     ACTIVE,

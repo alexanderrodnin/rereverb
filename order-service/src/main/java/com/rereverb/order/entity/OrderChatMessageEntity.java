@@ -19,15 +19,15 @@ public class OrderChatMessageEntity {
     @GeneratedValue
     private UUID id;
 
-    @Column("order_id")
+    @Column(name = "order_id")
     private UUID orderId;
 
-    @Column("user_id")
+    @Column(name = "user_id")
     private UUID userId;
 
-    @Column("date_time")
+    @Column(name = "date_time")
     private LocalDateTime dateTime;
 
-    @Column("message")
+    @Column(name = "message")
     private String message;
 }

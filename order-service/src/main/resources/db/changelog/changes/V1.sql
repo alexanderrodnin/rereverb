@@ -8,7 +8,7 @@ $$
 $$
 ;/
 
-create table if not exists order
+create table if not exists order_table
 (
     id uuid not null,
     advertisement_id uuid not null,

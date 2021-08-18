@@ -1,4 +1,4 @@
-package com.rereverb.advertisement.model;
+package com.rereverb.api.advertisement.enums;
 
 public enum AdvertisementStatus {
     OPENED,

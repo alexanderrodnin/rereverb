@@ -1,7 +1,7 @@
 package com.rereverb.order.rest.mapper;
 
 import com.rereverb.order.model.Order;
-import com.rereverb.order.rest.dto.OrderDto;
+import com.rereverb.api.order.rest.dto.OrderDto;
 import org.mapstruct.Mapper;
 
 @Mapper

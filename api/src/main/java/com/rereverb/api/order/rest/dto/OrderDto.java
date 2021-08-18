@@ -1,7 +1,6 @@
-package com.rereverb.order.rest.dto;
+package com.rereverb.api.order.rest.dto;
 
-import com.rereverb.order.model.OrderChatMessage;
-import com.rereverb.order.model.OrderStatus;
+import com.rereverb.api.order.enums.OrderStatus;
 import lombok.*;
 
 import java.util.List;
@@ -17,5 +16,5 @@ public class OrderDto {
     private UUID advertisementId;
     private UUID buyerId;
     private OrderStatus status;
-    private List<OrderChatMessage> orderChatMessages;
+    private List<OrderChatMessageDto> orderChatMessages;
 }

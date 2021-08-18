@@ -1,5 +1,6 @@
 package com.rereverb.order.model;
 
+import com.rereverb.api.order.enums.OrderStatus;
 import lombok.*;
 
 import java.util.List;

@@ -1,6 +1,6 @@
 package com.rereverb.order.entity;
 
-import com.rereverb.order.model.OrderStatus;
+import com.rereverb.api.order.enums.OrderStatus;
 import com.vladmihalcea.hibernate.type.basic.PostgreSQLEnumType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,7 +13,7 @@ import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
-@Table(name = "order")
+@Table(name = "order_table")
 @TypeDefs({
         @TypeDef(
                 name = "pgsql_enum",
@@ -29,10 +29,10 @@ public class OrderEntity {
     @GeneratedValue
     private UUID id;
 
-    @Column("advertisement_id")
+    @Column(name = "advertisement_id")
     private UUID advertisementId;
 
-    @Column("buyer_id")
+    @Column(name = "buyer_id")
     private UUID buyerId;
 
     @Type(type = "pgsql_enum")

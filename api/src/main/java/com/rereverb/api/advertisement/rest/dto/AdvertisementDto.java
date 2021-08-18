@@ -1,6 +1,6 @@
-package com.rereverb.advertisement.rest.dto;
+package com.rereverb.api.advertisement.rest.dto;
 
-import com.rereverb.advertisement.model.AdvertisementStatus;
+import com.rereverb.api.advertisement.enums.AdvertisementStatus;
 import lombok.*;
 
 import java.util.UUID;
