@@ -2,6 +2,7 @@ package com.rereverb.order.model;
 
 import lombok.*;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Getter
@@ -9,9 +10,10 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class User {
+public class OrderChatMessage {
     private UUID id;
-    private String email;
-    private String name;
-    private String password;
+    private UUID orderId;
+    private UUID userId;
+    private LocalDateTime dateTime;
+    private String message;
 }
