@@ -9,8 +9,8 @@ build:
 deploy:
   helm:
     releases:
-    - name: rereverb-v-service
-      chartPath: rereverb-order-service-chart
+    - name: rereverb-order-service
+      chartPath: order-service-chart
       skipBuildDependencies: false
       values:
         image: rereverb-order-service

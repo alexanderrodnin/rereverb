@@ -9,8 +9,8 @@ build:
 deploy:
   helm:
     releases:
-    - name: rereverb-v-service
-      chartPath: rereverb-advertisement-service-chart
+    - name: rereverb-advertisement-service
+      chartPath: advertisement-service-chart
       skipBuildDependencies: false
       values:
         image: rereverb-advertisement-service
