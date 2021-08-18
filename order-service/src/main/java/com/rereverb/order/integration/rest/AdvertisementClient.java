@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 import java.util.UUID;
 
-@FeignClient(name = "advertisementClient", url = "http://localhost:8085")
+@FeignClient(name = "advertisementClient", url = "${rereverb.serviceUrls.advertisement}")
 @RequestMapping("/advertisements")
 public interface AdvertisementClient {
 
