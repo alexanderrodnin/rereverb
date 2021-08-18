@@ -29,7 +29,7 @@ public class AdvertisementEntity {
     @GeneratedValue
     private UUID id;
 
-    @Column("user_id")
+    @Column(name = "user_id")
     private UUID userId;
 
     @Column
@@ -43,7 +43,6 @@ public class AdvertisementEntity {
 
     @Type(type = "pgsql_enum")
     @Enumerated(EnumType.STRING)
-
     @Column(name = "status", columnDefinition = "advertisement_status_type")
     private AdvertisementStatus status;
 }

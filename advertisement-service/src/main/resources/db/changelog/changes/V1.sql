@@ -8,7 +8,6 @@ $$
 $$
 ;/
 
-
 create table if not exists advertisement
 (
     id uuid not null,

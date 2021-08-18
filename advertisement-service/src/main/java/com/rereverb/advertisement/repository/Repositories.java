@@ -1,3 +1,3 @@
-package com.rereverb.order.repository;
+package com.rereverb.advertisement.repository;
 
 public interface Repositories { }

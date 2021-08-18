@@ -1,4 +1,4 @@
-package com.rereverb.order.infrastructure;
+package com.rereverb.advertisement.infrastructure;
 
 import com.fasterxml.jackson.databind.util.ISO8601DateFormat;
 import com.fasterxml.jackson.databind.util.ISO8601Utils;

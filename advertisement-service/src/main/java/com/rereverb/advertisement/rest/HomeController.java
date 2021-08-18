@@ -1,4 +1,4 @@
-package com.rereverb.order.rest;
+package com.rereverb.advertisement.rest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

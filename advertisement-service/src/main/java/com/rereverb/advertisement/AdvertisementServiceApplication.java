@@ -1,4 +1,4 @@
-package com.rereverb.order;
+package com.rereverb.advertisement;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

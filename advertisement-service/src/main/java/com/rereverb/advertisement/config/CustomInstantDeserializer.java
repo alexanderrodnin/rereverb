@@ -1,4 +1,4 @@
-package com.rereverb.order.config;
+package com.rereverb.advertisement.config;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonTokenId;

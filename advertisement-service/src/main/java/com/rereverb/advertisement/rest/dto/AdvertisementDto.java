@@ -12,6 +12,7 @@ import java.util.UUID;
 @ToString
 public class AdvertisementDto {
     private UUID id;
+    private UUID userId;
     private String header;
     private String description;
     private double price;

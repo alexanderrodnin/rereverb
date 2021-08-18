@@ -1,9 +1,6 @@
 package com.rereverb.advertisement.rest.dto;
 
-import com.rereverb.advertisement.model.AdvertisementStatus;
 import lombok.*;
-
-import java.util.UUID;
 
 @Getter
 @Setter

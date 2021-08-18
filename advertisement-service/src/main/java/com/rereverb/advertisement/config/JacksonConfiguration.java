@@ -1,4 +1,4 @@
-package com.rereverb.order.config;
+package com.rereverb.advertisement.config;
 
 import com.fasterxml.jackson.datatype.threetenbp.ThreeTenModule;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -15,9 +15,9 @@ public class JacksonConfiguration {
   @ConditionalOnMissingBean(ThreeTenModule.class)
   ThreeTenModule threeTenModule() {
     ThreeTenModule module = new ThreeTenModule();
-    module.addDeserializer(Instant.class, com.rereverb.order.config.CustomInstantDeserializer.INSTANT);
-    module.addDeserializer(OffsetDateTime.class, com.rereverb.order.config.CustomInstantDeserializer.OFFSET_DATE_TIME);
-    module.addDeserializer(ZonedDateTime.class, com.rereverb.order.config.CustomInstantDeserializer.ZONED_DATE_TIME);
+    module.addDeserializer(Instant.class, com.rereverb.advertisement.config.CustomInstantDeserializer.INSTANT);
+    module.addDeserializer(OffsetDateTime.class, com.rereverb.advertisement.config.CustomInstantDeserializer.OFFSET_DATE_TIME);
+    module.addDeserializer(ZonedDateTime.class, com.rereverb.advertisement.config.CustomInstantDeserializer.ZONED_DATE_TIME);
     return module;
   }
 }
