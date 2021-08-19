@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 import java.util.UUID;
 
-@FeignClient(name = "advertisementClient", url = "${rereverb.serviceUrls.advertisement}")
-@RequestMapping("/advertisements")
+@FeignClient(
+        name = "advertisementClient",
+        url = "${rereverb.serviceUrls.advertisement}/advertisements"
+)
 public interface AdvertisementClient {
 
     @GetMapping
@@ -21,7 +23,7 @@ public interface AdvertisementClient {
             @RequestHeader("X-UserUUID") UUID userId
     );
 
-    @GetMapping("{advertisementId}")
+    @GetMapping("/{advertisementId}")
     AdvertisementDto getById(
             @PathVariable UUID advertisementId
     );
