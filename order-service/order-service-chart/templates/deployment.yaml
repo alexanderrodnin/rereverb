@@ -28,3 +28,5 @@ spec:
               value: {{ .Values.externalPostgresql.postgresqlUsername }}
             - name: SPRING_DATASOURCE_PASSWORD
               value: {{ .Values.externalPostgresql.postgresqlPassword }}
+            - name: REREVERB_SERVICEURLS_ADVERTISEMENT
+              value: {{ .Values.rereverb.serviceUrls.advertisement }}

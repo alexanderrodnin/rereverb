@@ -12,3 +12,7 @@ externalPostgresql:
   postgresqlUsername: postgres
   postgresqlPassword: postgres
   postgresqlUrl: "jdbc:postgresql://order-service-pg-postgresql:5432/postgres"
+
+rereverb:
+  serviceUrls:
+    advertisement: http://rereverb-advertisement-service:8085

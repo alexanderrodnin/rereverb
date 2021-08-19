@@ -33,9 +33,9 @@ springfox.documentation.open-api.v3: path=/api-docs
 
 rereverb:
   serviceUrls:
-    advertisement: http://localhost:8085
+    advertisement: http://rereverb-advertisement-service:8085
 
-
+##            rereverb-advertisement-service
 #feign:
 #  client:
 #    config:
