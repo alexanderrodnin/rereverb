@@ -1,12 +1,15 @@
 package com.rereverb.advertisement.rest;
 
+import com.rereverb.advertisement.integration.kafka.KafkaProducer;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * Home redirection to swagger api documentation 
  */
-@Controller
+            @Controller
 public class HomeController {
     @RequestMapping(value = "/")
     public String index() {
