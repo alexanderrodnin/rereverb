@@ -1,8 +1,10 @@
 package com.rereverb.order.integration.rest;
 
+import com.rereverb.api.advertisement.enums.AdvertisementStatus;
 import com.rereverb.api.advertisement.rest.dto.AdvertisementCreationDto;
 import com.rereverb.api.advertisement.rest.dto.AdvertisementDto;
 import com.rereverb.api.advertisement.rest.dto.AdvertisementModifyingDto;
+import com.rereverb.api.advertisement.rest.dto.AdvertisementStatusChangedDto;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 

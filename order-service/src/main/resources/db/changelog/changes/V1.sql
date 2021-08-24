@@ -1,7 +1,11 @@
 do
 $$
     begin
-        create type order_status_type as enum ('ACTIVE', 'SUCCESS', 'CANCELLED');
+        create type order_status_type as enum (
+            'ACTIVE',
+            'SUCCESS',
+            'CANCELLED'
+            );
     exception
         when duplicate_object then null;
     end;

@@ -1,7 +1,10 @@
 package com.rereverb.order.service;
 
+import com.rereverb.api.advertisement.rest.dto.AdvertisementDto;
 import com.rereverb.order.entity.OrderEntity;
+import com.rereverb.order.exception.ForbiddenException;
 import com.rereverb.order.exception.NotFoundException;
+import com.rereverb.order.integration.rest.AdvertisementClient;
 import com.rereverb.order.mapper.OrderChatMessageMapper;
 import com.rereverb.order.mapper.OrderMapper;
 import com.rereverb.order.model.Order;
@@ -26,6 +29,8 @@ public class OrderService {
 
     private final OrderMapper orderMapper;
     private final OrderChatMessageMapper orderChatMessageMapper;
+
+    private final OrderStatusSagaService orderStatusSagaService;
 
     public void createOrder(UUID advertisementId, UUID buyerId, String firstMessage) {
         Order order = Order.builder()
@@ -57,12 +62,6 @@ public class OrderService {
     }
 
     public void changeOrderStatus(UUID orderId, OrderStatus newStatus, UUID userId) {
-        OrderEntity orderEntity = orderRepository.findById(orderId).orElseThrow(() -> new NotFoundException("Order not found"));
-//        if (!userId.equals(orderEntity.getSellerId())) {
-//            throw new ForbiddenException();
-//        }
-        orderEntity.setStatus(newStatus);
-
-        orderRepository.save(orderEntity);
+        orderStatusSagaService.execute(orderId, newStatus, userId);
     }
 }

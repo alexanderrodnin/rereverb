@@ -1,20 +1,18 @@
 package com.rereverb.api.order.rest.dto;
 
+import com.rereverb.api.order.enums.OrderStatus;
 import lombok.*;
 
-import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Getter
-@Setter
 @Builder(toBuilder = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class OrderChatMessageDto {
-    private UUID id;
+public class OrderStatusChangedDto {
     private UUID orderId;
-    private UUID userId;
-    private LocalDateTime dateTime;
-    private String message;
+    private UUID advertisementId;
+    private OrderStatus previousStatus;
+    private OrderStatus nextStatus;
 }

@@ -1,12 +1,12 @@
-package com.rereverb.advertisement.integration.kafka;
+package com.rereverb.order.integration.kafka;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rereverb.api.advertisement.rest.dto.AdvertisementStatusChangedDto;
+import com.rereverb.api.order.rest.dto.OrderStatusChangedDto;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
@@ -15,13 +15,13 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class KafkaProducer {
 
-    private static final String TOPIC = "advertisement-status";
+    private static final String TOPIC = "order-status";
 
     private final KafkaTemplate<String, String> kafkaTemplate;
     private final ObjectMapper objectMapper;
 
     @SneakyThrows
-    public void publishAdvertisementStatusChanged(AdvertisementStatusChangedDto dto) {
+    public void publishAdvertisementStatusChanged(OrderStatusChangedDto dto) {
         String message = objectMapper.writeValueAsString(dto);
         log.info(String.format("#### -> Producing message -> %s", message));
 

@@ -1,5 +1,6 @@
 package com.rereverb.advertisement.rest.controller;
 
+import com.rereverb.api.advertisement.enums.AdvertisementStatus;
 import com.rereverb.api.advertisement.rest.dto.AdvertisementCreationDto;
 import com.rereverb.api.advertisement.rest.dto.AdvertisementDto;
 import com.rereverb.api.advertisement.rest.dto.AdvertisementModifyingDto;
@@ -7,6 +8,7 @@ import com.rereverb.advertisement.rest.mapper.AdvertisementCreationDtoMapper;
 import com.rereverb.advertisement.rest.mapper.AdvertisementDtoMapper;
 import com.rereverb.advertisement.rest.mapper.AdvertisementModifyingDtoMapper;
 import com.rereverb.advertisement.service.AdvertisementService;
+import com.rereverb.api.advertisement.rest.dto.AdvertisementStatusChangedDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -71,4 +73,19 @@ public class AdvertisementController {
                 userId
         );
     }
+//
+//    @PutMapping("/{advertisementId}/status")
+//    public AdvertisementStatusChangedDto modifyAdvertisementStatus(
+//            @PathVariable UUID advertisementId,
+//            @RequestBody AdvertisementStatus nextStatus,
+//            @RequestHeader("X-UserUUID") UUID userId
+//    ) {
+//        AdvertisementStatus previousStatus = advertisementService.modifyAdvertisementStatus(advertisementId, nextStatus);
+//        return AdvertisementStatusChangedDto.builder()
+//                .advertisementId(advertisementId)
+//                .previousStatus(previousStatus)
+//                .nextStatus(nextStatus)
+//                .build();
+//    }
+
 }
