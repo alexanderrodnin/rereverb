@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.Map;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -73,19 +74,12 @@ public class AdvertisementController {
                 userId
         );
     }
-//
-//    @PutMapping("/{advertisementId}/status")
-//    public AdvertisementStatusChangedDto modifyAdvertisementStatus(
-//            @PathVariable UUID advertisementId,
-//            @RequestBody AdvertisementStatus nextStatus,
-//            @RequestHeader("X-UserUUID") UUID userId
-//    ) {
-//        AdvertisementStatus previousStatus = advertisementService.modifyAdvertisementStatus(advertisementId, nextStatus);
-//        return AdvertisementStatusChangedDto.builder()
-//                .advertisementId(advertisementId)
-//                .previousStatus(previousStatus)
-//                .nextStatus(nextStatus)
-//                .build();
-//    }
+
+    @GetMapping("/headers")
+    public Collection<String> printHeaders(
+            @RequestHeader Map<String, String> headers
+    ) {
+        return headers.entrySet().stream().map(item -> item.getKey() + " = " + item.getValue()).collect(Collectors.toList());
+    }
 
 }
