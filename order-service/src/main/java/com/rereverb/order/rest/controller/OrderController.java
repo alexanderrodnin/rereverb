@@ -3,6 +3,7 @@ package com.rereverb.order.rest.controller;
 import com.rereverb.api.order.enums.OrderStatus;
 import com.rereverb.api.order.rest.dto.OrderCreationDto;
 import com.rereverb.api.order.rest.dto.OrderDto;
+import com.rereverb.api.user.model.SessionKey;
 import com.rereverb.order.rest.mapper.OrderDtoMapper;
 import com.rereverb.order.service.OrderService;
 import lombok.RequiredArgsConstructor;
@@ -30,11 +31,12 @@ public class OrderController {
     @PostMapping
     void createOrder(
             @RequestBody OrderCreationDto orderCreationDto,
-            @RequestHeader("X-UserUUID") UUID userId
+            @CookieValue("session_id") String sessionId
     ) {
+        SessionKey key = SessionKey.fromBase64(sessionId);
         orderService.createOrder(
                 orderCreationDto.getAdvertisementId(),
-                userId,
+                key.getUserId(),
                 orderCreationDto.getMessage()
         );
     }
@@ -43,17 +45,19 @@ public class OrderController {
     public void addComment(
             @PathVariable UUID orderId,
             @RequestBody String message,
-            @RequestHeader("X-UserUUID") UUID userId
+            @CookieValue("session_id") String sessionId
     ) {
-        orderService.addChatMessage(orderId, message, userId);
+        SessionKey key = SessionKey.fromBase64(sessionId);
+        orderService.addChatMessage(orderId, message, key.getUserId());
     }
 
     @PostMapping("/{orderId}/status")
     public void changeOrderStatus(
             @PathVariable UUID orderId,
             @RequestBody OrderStatus status,
-            @RequestHeader("X-UserUUID") UUID userId
+            @CookieValue("session_id") String sessionId
     ) {
-        orderService.changeOrderStatus(orderId, status, userId);
+        SessionKey key = SessionKey.fromBase64(sessionId);
+        orderService.changeOrderStatus(orderId, status, key.getUserId());
     }
 }

@@ -9,6 +9,7 @@ import com.rereverb.advertisement.rest.mapper.AdvertisementDtoMapper;
 import com.rereverb.advertisement.rest.mapper.AdvertisementModifyingDtoMapper;
 import com.rereverb.advertisement.service.AdvertisementService;
 import com.rereverb.api.advertisement.rest.dto.AdvertisementStatusChangedDto;
+import com.rereverb.api.user.model.SessionKey;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,9 +37,10 @@ public class AdvertisementController {
 
     @GetMapping("/my")
     public Collection<AdvertisementDto> getForUser(
-            @RequestHeader("X-UserUUID") UUID userId
+            @CookieValue("session_id") String sessionId
     ) {
-        return advertisementService.getForUser(userId).stream()
+        SessionKey key = SessionKey.fromBase64(sessionId);
+        return advertisementService.getForUser(key.getUserId()).stream()
                 .map(advertisementDtoMapper::map)
                 .collect(Collectors.toList());
     }
@@ -55,10 +57,11 @@ public class AdvertisementController {
     @PostMapping
     public void createAdvertisement(
             @RequestBody AdvertisementCreationDto advertisementCreation,
-            @RequestHeader("X-UserUUID") UUID userId
+            @CookieValue("session_id") String sessionId
     ) {
+        SessionKey key = SessionKey.fromBase64(sessionId);
         advertisementService.createAdvertisement(
-                advertisementCreationDtoMapper.map(advertisementCreation), userId
+                advertisementCreationDtoMapper.map(advertisementCreation), key.getUserId()
         );
     }
 
@@ -66,12 +69,13 @@ public class AdvertisementController {
     public void modifyAdvertisement(
             @PathVariable UUID advertisementId,
             @RequestBody AdvertisementModifyingDto advertisementModifying,
-            @RequestHeader("X-UserUUID") UUID userId
+            @CookieValue("session_id") String sessionId
     ) {
+        SessionKey key = SessionKey.fromBase64(sessionId);
         advertisementService.modifyAdvertisement(
                 advertisementId,
                 advertisementModifyingDtoMapper.map(advertisementModifying),
-                userId
+                key.getUserId()
         );
     }
 

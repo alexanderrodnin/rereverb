@@ -1,5 +1,6 @@
 package com.rereverb.userservice.service;
 
+import com.rereverb.api.user.model.SessionKey;
 import com.rereverb.userservice.mapper.UserMapper;
 import com.rereverb.userservice.model.Credentials;
 import com.rereverb.userservice.model.User;
@@ -28,7 +29,11 @@ public class AuthService {
         return userRepository.findByNameAndPassword(credentials.getName(), credentials.getPassword())
                 .map(userMapper::map)
                 .map(item -> {
-                    String sessionId = RandomString.make();
+                    String sessionId = SessionKey.builder()
+                            .userId(item.getId())
+                            .salt(RandomString.make())
+                            .build()
+                            .toBase64();
                     sessions.put(sessionId, item);
                     return sessionId;
                 });
@@ -38,7 +43,11 @@ public class AuthService {
         return Optional.of(userRepository.save(userMapper.map(user)))
                 .map(userMapper::map)
                 .map(item -> {
-                    String sessionId = RandomString.make();
+                    String sessionId = SessionKey.builder()
+                            .userId(item.getId())
+                            .salt(RandomString.make())
+                            .build()
+                            .toBase64();
                     sessions.put(sessionId, item);
                     return sessionId;
                 });
