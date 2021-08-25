@@ -58,13 +58,15 @@ public class AdvertisementService {
             AdvertisementCreation advertisementCreation,
             UUID userId
     ) {
-        Advertisement.builder()
+        Advertisement advertisement = Advertisement.builder()
                 .userId(userId)
                 .header(advertisementCreation.getHeader())
                 .description(advertisementCreation.getDescription())
                 .price(advertisementCreation.getPrice())
                 .status(AdvertisementStatus.OPENED)
                 .build();
+
+        advertisementRepository.save(advertisementMapper.map(advertisement));
     }
 
     public void modifyAdvertisement(
