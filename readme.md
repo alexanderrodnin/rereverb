@@ -3,11 +3,8 @@
 ### Run minikube 
 ```shell
 minikube start \
---cpus=4 \
---memory=8g \
---cni=flannel \
---kubernetes-version="v1.19.0" \
---driver=hyperkit
+--cpus=3 \
+--memory=6g
 minikube addons enable ingress
 ```
 Be careful: all vps should be disabled.
