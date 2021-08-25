@@ -27,6 +27,10 @@ spec:
       - backend:
           serviceName: rereverb-order-service
           servicePort: 8090
+        path: /orders/status
+      - backend:
+          serviceName: rereverb-order-service
+          servicePort: 8090
         path: /orders/.+
       - backend:
           serviceName: rereverb-order-service

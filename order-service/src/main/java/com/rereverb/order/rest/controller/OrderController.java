@@ -64,4 +64,9 @@ public class OrderController {
                 key.getUserId()
         );
     }
+
+    @PostMapping("/status")
+    public String getStatus() {
+        return "it's status";
+    }
 }
