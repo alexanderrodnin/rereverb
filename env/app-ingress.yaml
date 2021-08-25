@@ -36,3 +36,7 @@ spec:
           serviceName: rereverb-advertisement-service
           servicePort: 8085
         path: /advertisements/.+
+      - backend:
+          serviceName: rereverb-advertisement-service
+          servicePort: 8085
+        path: /advertisements/.+/.+
