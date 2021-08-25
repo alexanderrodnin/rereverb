@@ -65,7 +65,7 @@ public class OrderController {
         );
     }
 
-    @PostMapping("/status")
+    @GetMapping("/status")
     public String getStatus() {
         return "it's status";
     }
