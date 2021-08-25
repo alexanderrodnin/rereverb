@@ -16,3 +16,9 @@ externalPostgresql:
 rereverb:
   serviceUrls:
     advertisement: http://rereverb-advertisement-service:8085
+kafka:
+  consumer:
+    bootstrapservers: kafka.default.svc.cluster.local:9092
+  producer:
+    bootstrapservers: kafka.default.svc.cluster.local:9092
+

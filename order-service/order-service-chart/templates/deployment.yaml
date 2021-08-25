@@ -30,3 +30,7 @@ spec:
               value: {{ .Values.externalPostgresql.postgresqlPassword }}
             - name: REREVERB_SERVICEURLS_ADVERTISEMENT
               value: {{ .Values.rereverb.serviceUrls.advertisement }}
+            - name: SPRING_KAFKA_CONSUMER_BOOTSTRAPSERVERS
+              value: {{ .Values.kafka.consumer.bootstrapservers }}
+            - name: SPRING_KAFKA_PRODUCER_BOOTSTRAPSERVERS
+              value: {{ .Values.kafka.producer.bootstrapservers }}
