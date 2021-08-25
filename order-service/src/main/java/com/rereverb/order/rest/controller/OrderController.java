@@ -3,6 +3,7 @@ package com.rereverb.order.rest.controller;
 import com.rereverb.api.order.enums.OrderStatus;
 import com.rereverb.api.order.rest.dto.OrderCreationDto;
 import com.rereverb.api.order.rest.dto.OrderDto;
+import com.rereverb.api.order.rest.dto.OrderStatusChangeRequestDto;
 import com.rereverb.api.user.model.SessionKey;
 import com.rereverb.order.rest.mapper.OrderDtoMapper;
 import com.rereverb.order.service.OrderService;
@@ -51,13 +52,16 @@ public class OrderController {
         orderService.addChatMessage(orderId, message, key.getUserId());
     }
 
-    @PostMapping("/{orderId}/status")
+    @PostMapping("/status")
     public void changeOrderStatus(
-            @PathVariable UUID orderId,
-            @RequestBody OrderStatus status,
+            @RequestBody OrderStatusChangeRequestDto orderStatusChangeRequestDto,
             @CookieValue("session_id") String sessionId
     ) {
         SessionKey key = SessionKey.fromBase64(sessionId);
-        orderService.changeOrderStatus(orderId, status, key.getUserId());
+        orderService.changeOrderStatus(
+                orderStatusChangeRequestDto.getOrderId(),
+                orderStatusChangeRequestDto.getStatus(),
+                key.getUserId()
+        );
     }
 }
