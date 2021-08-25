@@ -29,6 +29,6 @@ spec:
             - name: SPRING_DATASOURCE_PASSWORD
               value: {{ .Values.externalPostgresql.postgresqlPassword }}
             - name: SPRING_KAFKA_CONSUMER_BOOTSTRAPSERVERS
-              value: {{ .Values.kafka.consumer.bootstrap-servers }}
+              value: {{ .Values.kafka.consumer.bootstrapservers }}
             - name: SPRING_KAFKA_PRODUCER_BOOTSTRAPSERVERS
-              value: {{ .Values.kafka.producer.bootstrap-servers }}
+              value: {{ .Values.kafka.producer.bootstrapservers }}

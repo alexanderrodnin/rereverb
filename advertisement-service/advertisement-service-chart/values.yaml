@@ -14,6 +14,6 @@ externalPostgresql:
   postgresqlUrl: "jdbc:postgresql://advertisement-service-pg-postgresql:5432/postgres"
 kafka:
   consumer:
-    bootstrap-servers: kafka.default.svc.cluster.local:9092
+    bootstrapservers: kafka.default.svc.cluster.local:9092
   producer:
-    bootstrap-servers: kafka.default.svc.cluster.local:9092
+    bootstrapservers: kafka.default.svc.cluster.local:9092
