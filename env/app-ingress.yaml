@@ -29,6 +29,10 @@ spec:
           servicePort: 8090
         path: /orders/.+
       - backend:
+          serviceName: rereverb-order-service
+          servicePort: 8090
+        path: /orders/.+/.+
+      - backend:
           serviceName: rereverb-advertisement-service
           servicePort: 8085
         path: /advertisements/
