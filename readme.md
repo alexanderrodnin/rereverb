@@ -70,6 +70,11 @@ kubectl apply -f env/auth-ingress.yaml
 ```
 
 ## Usage test
+
+### Postman collection
+[here](docs/postman/Diploma%20-%20final.postman_collection.json)
+
+### Curl flow example
 ```shell
 ## ----------------------------------#
 ##        Users registration         #
