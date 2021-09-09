@@ -45,6 +45,8 @@ helm install kafka bitnami/kafka -f env/kafka/bitnami_kafka.yaml
 ## open browser on http://localhost:9090
 helm repo add stable https://charts.helm.sh/stable 
 helm install rereverb-prometheus stable/prometheus 
+## Add Grafana
+helm install my-grafana stable/grafana
 ```
 
 ### Run user-service
