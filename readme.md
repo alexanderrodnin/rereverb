@@ -43,6 +43,7 @@ helm install kafka bitnami/kafka -f env/kafka/bitnami_kafka.yaml
 ## Example
 ## kubectl port-forward [pod name of prometheus server] 9090
 ## open browser on http://localhost:9090
+helm repo add stable https://charts.helm.sh/stable 
 helm install rereverb-prometheus stable/prometheus 
 ```
 
