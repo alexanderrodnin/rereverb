@@ -38,6 +38,12 @@ helm install advertisement-service-pg bitnami/postgresql -f advertisement-servic
 helm install order-service-pg bitnami/postgresql -f order-service/env/helm_postgres/bitnami_postgresql.yaml
 ## Add Kafka
 helm install kafka bitnami/kafka -f env/kafka/bitnami_kafka.yaml 
+## Add Prometheus
+## For accessing to prometheus use port-forward.
+## Example
+## kubectl port-forward [pod name of prometheus server] 9090
+## open browser on http://localhost:9090
+helm install rereverb-prometheus stable/prometheus 
 ```
 
 ### Run user-service

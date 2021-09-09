@@ -13,6 +13,10 @@ spec:
     metadata:
       labels:
         {{- include "rereverb-user-service-chart.selectorLabels" . | nindent 8 }}
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "8080"
+        prometheus.io/path: "/actuator/prometheus"
     spec:
       containers:
         - name: {{ .Chart.Name }}
