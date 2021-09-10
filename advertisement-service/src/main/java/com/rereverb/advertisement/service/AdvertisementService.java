@@ -12,6 +12,8 @@ import com.rereverb.api.advertisement.enums.AdvertisementStatus;
 import com.rereverb.api.advertisement.rest.dto.AdvertisementStatusChangedDto;
 import com.rereverb.api.order.enums.OrderStatus;
 import com.rereverb.api.order.rest.dto.OrderStatusChangedDto;
+import io.micrometer.core.instrument.Counter;
+import io.micrometer.core.instrument.MeterRegistry;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -20,12 +22,27 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
-@RequiredArgsConstructor
 public class AdvertisementService {
 
     private final AdvertisementRepository advertisementRepository;
     private final AdvertisementMapper advertisementMapper;
     private final KafkaProducer kafkaProducer;
+    private final Counter advCreationCounter;
+
+    public AdvertisementService(
+            AdvertisementRepository advertisementRepository,
+            AdvertisementMapper advertisementMapper,
+            KafkaProducer kafkaProducer,
+            MeterRegistry registry
+    ) {
+        this.advertisementRepository = advertisementRepository;
+        this.advertisementMapper = advertisementMapper;
+        this.kafkaProducer = kafkaProducer;
+        advCreationCounter = Counter
+                .builder("rereverb_advertisement_creation_counter")
+                .description("Number of created advertisements")
+                .register(registry);
+    }
 
     public Collection<Advertisement> getAll() {
         return advertisementRepository.findAll().stream()
@@ -67,6 +84,7 @@ public class AdvertisementService {
                 .build();
 
         advertisementRepository.save(advertisementMapper.map(advertisement));
+        advCreationCounter.increment();
     }
 
     public void modifyAdvertisement(

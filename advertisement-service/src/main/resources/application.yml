@@ -41,3 +41,9 @@ spring:
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
 
 springfox.documentation.open-api.v3: path=/api-docs
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus

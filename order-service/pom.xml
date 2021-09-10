@@ -92,6 +92,12 @@
             <version>2.6.4</version>
         </dependency>
 
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
         <!-- Bean Validation API support -->
         <dependency>
             <groupId>javax.validation</groupId>

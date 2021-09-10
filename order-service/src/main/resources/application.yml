@@ -45,3 +45,9 @@ springfox.documentation.open-api.v3: path=/api-docs
 rereverb:
   serviceUrls:
     advertisement: http://localhost:8085
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
