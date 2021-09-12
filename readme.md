@@ -10,8 +10,8 @@
 ```shell
 ## mac os
 minikube start \
---cpus=4 \
---memory=8g \
+--cpus=3 \
+--memory=6g \
 --cni=flannel \
 --kubernetes-version="v1.19.0" \
 --driver=hyperkit
